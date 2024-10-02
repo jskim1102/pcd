@@ -69,7 +69,7 @@ pcd_in = o3d.geometry.PointCloud()
 pcd_in.points = o3d.utility.Vector3dVector(xyz_in)
 pcd_in.colors = o3d.utility.Vector3dVector(rgb_in)
 
-o3d.visualization.draw_geometries([pcd_in])
+o3d.visualization.draw_geometries([pcd_in, bb])
 
 x_in = xyz_in[:, 0]
 y_in = xyz_in[:, 1]
