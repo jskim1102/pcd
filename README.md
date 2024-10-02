@@ -1,5 +1,5 @@
 # nerf_1002
-## 1. ply 파일 읽어서 3d pcd의 영역을 지정하기(3d_bb내부 영역에 있는 pcd만 추출 : pcd_crop)
+## 1. ply 파일 읽어서 3d pcd의 영역을 지정하기(bb내부 영역에 있는 pcd만 추출 : pcd_crop)
 ```python
 import open3d as o3d
 import numpy as np
