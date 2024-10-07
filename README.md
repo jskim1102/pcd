@@ -148,4 +148,12 @@ bb_fit = o3d.geometry.AxisAlignedBoundingBox(min_bound=min_bound, max_bound=max_
 bb_fit.color = (1, 0, 0)
 
 o3d.visualization.draw_geometries([pcd_fit, bb_fit])
+
+# ply 파일 저장 및 확인
+
+output_path = '/home/hyebin/lee/filtered_pcd/0904_js_007_filtered.ply'
+o3d.io.write_point_cloud(output_path,pcd_fit)
+
+pcd_filtered = o3d.io.read_point_cloud(output_path)
+o3d.visualization.draw_geometries([pcd_filtered])
 ```
