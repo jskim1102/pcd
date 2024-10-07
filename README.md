@@ -132,7 +132,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-## 5. 철근 3차원 경게상자 fitting
+## 5. 철근 3차원 경계상자 fitting
 ```python
 pcd_fit, ind = pcd_rot.remove_statistical_outlier(nb_neighbors=20, std_ratio=2.0)
 
