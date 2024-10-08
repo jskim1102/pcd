@@ -137,7 +137,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-## 5. xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 및 3차원 경계상자 fitting
+## 5. xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 -> 3차원 경계상자 fitting
 ```python
 pcd_rot_np = np.asarray(pcd_rot.points)
 pcd_rot_colors = np.asarray(pcd_rot.colors)  # 원본 색상 데이터도 가져오기
