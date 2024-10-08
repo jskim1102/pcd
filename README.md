@@ -29,7 +29,7 @@ o3d.visualization.draw_geometries([pcd_crop, bb_crop])
 ```
 
 
-## ② 3d pcd를 수직 위에서 바라본 2차원 BEV 이미지로 시각화하기 -> x, y 좌표값을 확인할수 있음(확인한 좌표값에 따라 철근 구조물에 해당하는 pcd를 추출하기 위한 폴리곤 좌표 A, B, C, D를 설정)
+## ② 3d pcd를 수직 위에서 바라본 2차원 BEV 이미지로 시각화하기 -> x, y 좌표값을 확인할수 있음(확인한 좌표값에 따라 철근 구조물에 해당하는 pcd를 추출하기 위한 폴리곤 좌표 A, B, C, D를 설정)->A, B, C, D 좌표값의 폴리곤 내부의 pcd만 추출
 ```python
 xyz, rgb = np.asarray(pcd_crop.points), np.asarray(pcd_crop.colors)
 x = xyz[:, 0]
@@ -63,10 +63,7 @@ plt.title('Top-down View of the Filtered Point Cloud (with A, B, C, D Points)')
 plt.grid(True)
 plt.axis('equal')
 plt.show()
-```
 
-## 3. A, B, C, D 좌표값의 폴리곤 내부의 pcd만 추출
-```python
 polygon = np.array([A, B, C, D])
 path = Path(polygon)
 
