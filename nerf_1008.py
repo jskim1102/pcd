@@ -57,10 +57,10 @@ plt.axis('equal')
 plt.show()
 
 polygon = np.array([A, B, C, D])
-path = Path(polygon)
+path_ = Path(polygon)
 
 xy_points = xyz[:, :2]  # X와 Y 좌표만 사용
-mask = path.contains_points(xy_points)
+mask = path_.contains_points(xy_points)
 
 xyz_mask, rgb_mask = xyz[mask], rgb[mask]
 pcd_mask = o3d.geometry.PointCloud()
