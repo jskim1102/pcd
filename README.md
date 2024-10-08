@@ -194,7 +194,7 @@ output_path = output_dir + filename + '_filtered.ply'
 # o3d.visualization.draw_geometries([pcd_filtered])
 ```
 
-## 6. 계층 분리 후 Height Map 출력
+## 6. Z값을 기준으로 계층 분리 후 Height Map 출력 및 저장
 ```python
 import os
 
@@ -208,7 +208,7 @@ z_min = z_vals.min()
 z_max = z_vals.max()
 
 # Z 값에 기반해 1층과 2층을 분리
-threshold = z_max + (z_min + z_max) * 0.08  # Z 값의 중앙값을 기준으로 나눔 (필요시 조정 가능)
+threshold = z_max + (z_min + z_max) * 0.08 
 
 # 1층 철근 필터링
 layer_1_mask = z_vals <= threshold
