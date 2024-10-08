@@ -1,6 +1,6 @@
 1002 : 3d pcd 후보 영역 지정후 crop(①)하고 a,b,c,d 좌표로 pcd 추출(②)
 
-1003 : pcd xy평면 회전 및 노이즈 제거 후 3d bbox fitting
+1003 : pcd xy평면 회전(③) 및 노이즈 제거 후 3d bbox fitting
 
 1004 : filtering된 pcd 저장
 
@@ -98,7 +98,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-## 4. 철근 pcd xy평면 회전
+## ③ 철근 pcd xy평면 회전
 ```python
 from sklearn.decomposition import PCA
 
@@ -141,7 +141,7 @@ plt.axis('equal')
 plt.show()
 ```
 
-## 5. xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 -> 3차원 경계상자 fitting
+## ④ xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 -> 3차원 경계상자 fitting
 ```python
 pcd_rot_np = np.asarray(pcd_rot.points)
 pcd_rot_colors = np.asarray(pcd_rot.colors)  # 원본 색상 데이터도 가져오기
