@@ -56,8 +56,6 @@ plt.grid(True)
 plt.axis('equal')
 plt.show()
 
-#%% 3. A, B, C, D 좌표값의 폴리곤 내부의 pcd만 추출
-
 polygon = np.array([A, B, C, D])
 path = Path(polygon)
 
@@ -88,7 +86,7 @@ plt.grid(True)
 plt.axis('equal')
 plt.show()
 
-#%% 4. 주성분 분석(PCA)을 활용한 xy평면 회전
+#%% 3. 주성분 분석(PCA)을 활용한 xy평면 회전
 
 from sklearn.decomposition import PCA
 
@@ -129,7 +127,7 @@ plt.show()
 
 
 
-#%% 5. 노이즈 제거 및 철근 구조 영역에 tight한 3차원 경계상자 추출
+#%% 4. 노이즈 제거 및 철근 구조 영역에 tight한 3차원 경계상자 추출
 
 pcd_rot_np = np.asarray(pcd_rot.points)
 pcd_rot_colors = np.asarray(pcd_rot.colors)  # 원본 색상 데이터도 가져오기
@@ -186,7 +184,7 @@ output_path = output_dir + filename + '_filtered.ply'
 # o3d.visualization.draw_geometries([pcd_filtered])
 
 
-#%% 6. 계층 분리 후 Height Map 출력
+#%% 5. 계층 분리 후 Height Map 출력
 
 import os
 
