@@ -1,6 +1,6 @@
 1002 : 3d pcd 후보 영역 지정후 crop(①)하고 a,b,c,d 좌표로 pcd 추출(②)
 
-1003 : pcd xy평면 회전(③) 및 노이즈 제거 후 3d bbox fitting
+1003 : pcd xy평면 회전(③) 및 노이즈 제거 후 3d bbox fitting(④)
 
 1004 : filtering된 pcd 저장
 
