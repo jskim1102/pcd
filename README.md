@@ -1,10 +1,10 @@
-1002 : 3d pcd 영역 지정후 crop하고 a,b,c,d 좌표로 pcd 추출  
+1002 : 3d pcd 후보 영역 지정후 crop(①)하고 a,b,c,d 좌표로 pcd 추출(②)
 1003 : pcd xy평면 회전 및 노이즈 제거 후 3d bbox fitting  
 1004 : filtering된 pcd 저장  
 1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장
 
 # Origin Code [nerf_1004]
-## ① ply 파일 읽어서 3d pcd의 영역을 지정하기(bb내부 영역에 있는 pcd만 추출 : pcd_crop)
+## ① ply 파일 읽어서 3d pcd의 후보 영역을 지정하기(bb내부 영역에 있는 pcd만 추출 : pcd_crop)
 ```python
 import open3d as o3d
 import numpy as np
@@ -25,7 +25,7 @@ o3d.visualization.draw_geometries([pcd_crop, bb_crop])
 ```
 
 
-## 2. 3d pcd를 수직 위에서 바라본 2차원 BEV 이미지로 시각화하기 -> x, y 좌표값을 확인할수 있음(확인한 좌표값에 따라 철근 구조물에 해당하는 pcd를 추출하기 위한 폴리곤 좌표 A, B, C, D를 설정)
+## ② 3d pcd를 수직 위에서 바라본 2차원 BEV 이미지로 시각화하기 -> x, y 좌표값을 확인할수 있음(확인한 좌표값에 따라 철근 구조물에 해당하는 pcd를 추출하기 위한 폴리곤 좌표 A, B, C, D를 설정)
 ```python
 xyz, rgb = np.asarray(pcd_crop.points), np.asarray(pcd_crop.colors)
 x = xyz[:, 0]
