@@ -2,9 +2,9 @@
 
 1003 : pcd xy평면 회전(③) 및 노이즈 제거 후 3d bbox fitting(④)
 
-1004 : filtering된 pcd 저장
+1004 : filtering된 pcd(①+②+③+④) 저장
 
-1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장
+1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장(⑤)
 
 
 # Origin Code [nerf_1004]
@@ -198,7 +198,7 @@ output_path = output_dir + filename + '_filtered.ply'
 # o3d.visualization.draw_geometries([pcd_filtered])
 ```
 
-## 6. Z값을 기준으로 계층 분리 후 Height Map 출력 및 저장
+## ⑤ Z값을 기준으로 계층 분리 후 Height Map 출력 및 저장
 ```python
 import os
 
