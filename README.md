@@ -1,5 +1,5 @@
 1002 : 3d pcd 영역 지정후 crop하고 a,b,c,d 좌표로 pcd 추출  
-1003 : 철근 pcd xy평면 회전 및 노이즈 제거  
+1003 : pcd xy평면 회전 및 노이즈 제거  
 1004 : filtering된 pcd 저장  
 1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장
 
