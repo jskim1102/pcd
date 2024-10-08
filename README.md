@@ -1,7 +1,7 @@
 1002 : 3d pcd 영역 지정후 crop하고 a,b,c,d 좌표로 pcd 추출  
 1003 : 철근 pcd xy평면 회전 및 노이즈 제거  
 1004 : filtering된 pcd 저장  
-1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장  
+1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장
 
 # Origin Code [nerf_1004]
 ## 1. ply 파일 읽어서 3d pcd의 영역을 지정하기(bb내부 영역에 있는 pcd만 추출 : pcd_crop)
