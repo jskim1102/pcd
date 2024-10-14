@@ -143,7 +143,7 @@ pcd_rot_np = np.asarray(pcd_rot.points)
 pcd_rot_colors = np.asarray(pcd_rot.colors)
 ```
 
-#%% ④ 회전 후 flip된 pcd 복구
+## ④ 회전 후 flip된 pcd 복구
 ```python
 pcd_rot_np = np.copy(np.asarray(pcd_rot.points))
 pcd_rot_np[:, 2] *= -1
