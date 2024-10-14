@@ -2,9 +2,11 @@
 
 1003 : pcd xy평면 회전(③) 및 노이즈 제거 후 3d bbox fitting(④)
 
-1004 : filtering된 pcd(①+②+③+④) 저장
+1004 : filtering된 pcd(①+②+③) 저장
 
-1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장(⑤)
+1008 : 노이즈 제거 코드 수정 및 계층 분리된 height map 저장(⑤+⑥)
+
+1010 : 회전 후 flip된 pcd 복구 코드 추가(④)
 
 
 # Origin Code [nerf_1004]
@@ -136,12 +138,37 @@ plt.title('Top-down View of the Aligned Point Cloud (with A, B, C, D Points)')
 plt.grid(True)
 plt.axis('equal')
 plt.show()
+
+pcd_rot_np = np.asarray(pcd_rot.points)
+pcd_rot_colors = np.asarray(pcd_rot.colors)
 ```
 
-## ④ xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 -> 3차원 경계상자 fitting
+#%% ④ 회전 후 flip된 pcd 복구
 ```python
-pcd_rot_np = np.asarray(pcd_rot.points)
-pcd_rot_colors = np.asarray(pcd_rot.colors)  # 원본 색상 데이터도 가져오기
+pcd_rot_np = np.copy(np.asarray(pcd_rot.points))
+pcd_rot_np[:, 2] *= -1
+
+pcd_rot_flipped = o3d.geometry.PointCloud()
+pcd_rot_flipped.points = o3d.utility.Vector3dVector(pcd_rot_np)
+pcd_rot_flipped.colors = pcd_rot.colors
+
+min_bound_np = np.copy(np.asarray(bb_rot.min_bound))
+max_bound_np = np.copy(np.asarray(bb_rot.max_bound))
+
+min_bound_np[2] *= -1  # z축 반전
+max_bound_np[2] *= -1  # z축 반전
+
+bb_rot_flipped = o3d.geometry.AxisAlignedBoundingBox(min_bound_np, max_bound_np)
+bb_rot_flipped.color = (1, 0, 0)
+
+o3d.visualization.draw_geometries([pcd_rot_flipped, bb_rot_flipped])
+
+pcd_rot_np = np.asarray(pcd_rot_flipped.points)
+pcd_rot_colors = np.asarray(pcd_rot_flipped.colors)
+```
+
+## ⑤ xy평면의 point 개수가 임계값 이하인 z층 point를 삭제하여 noise 제거 -> 3차원 경계상자 fitting
+```python
 z_values = np.unique(np.round(pcd_rot_np[:, 2], decimals=4))
 
 filtered_points = []
@@ -195,7 +222,7 @@ output_path = output_dir + filename + '_filtered.ply'
 # o3d.visualization.draw_geometries([pcd_filtered])
 ```
 
-## ⑤ Z값을 기준으로 계층 분리 후 Height Map 출력 및 저장
+## ⑥ Z값을 기준으로 계층 분리 후 Height Map 출력 및 저장
 ```python
 import os
 
