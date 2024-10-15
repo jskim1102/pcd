@@ -8,6 +8,8 @@
 
 1010 : 회전 후 flip된 pcd 복구 코드 추가(④)
 
+1015 : 전체적으로 코드 수정(nerfstudio, gaussian_splatting 모두 동작 및 pcd_crop -> pcd_masak -> pcd_rot -> pcd_fit -> pcd_flipped -> height map 코드 모두 정리)
+
 
 # Origin Code [nerf_1004]
 ## ① ply 파일 읽어서 3d pcd의 후보 영역을 지정하기(bb내부 영역에 있는 pcd만 추출 : pcd_crop)
