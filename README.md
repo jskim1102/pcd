@@ -10,6 +10,9 @@
 
 1015 : 전체적으로 코드 수정(nerfstudio, gaussian_splatting 모두 동작 및 pcd_crop -> pcd_masak -> pcd_rot -> pcd_fit -> pcd_flipped -> height map 코드 모두 정리)
 
+1018 : 전체적으로 코드 수정 2차
+
+
 # New Code [nerf_1015]
 ## 🄋 필요한 함수 정의
 ```python
